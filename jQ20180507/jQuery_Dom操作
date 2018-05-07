@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery DOM操作案例</title>
+  <style>
+    select {
+      width: 200px;
+      background-color: skyblue;
+      height: 200px;
+      font-size: 20px;
+    }
+    .btn-box {
+      width: 30px;
+      display: inline-block;
+      /*将元素的顶部及其后代与整行的顶部对齐*/
+      vertical-align: top;
+      /*vertical-align仅适用于内联和表格单元格元素：不能使用它来垂直对齐块级元素。*/
+    }
+    #container {
+      width: 600px;
+      height: 400px;
+      margin: 100px auto;
+    }
+    h1{ margin-left: 25%;}
+  </style>
+</head>
+
+<body>
+  <section id="container">
+    <h1>城市选择</h1>
+    <select id="src-city" name="src-city" multiple>
+      <option value="1">广州</option>
+      <option value="2">汕尾</option>
+      <option value="3">深圳</option>
+      <option value="4">珠海</option>
+      <option value="5">佛山</option>
+    </select>
+    <div class="btn-box">
+      <!--实体字符-->
+      <button id="btn1"> &gt;&gt; </button>
+      <button id="btn2"> &lt;&lt; </button>
+      <button id="btn3"> &gt;</button>
+      <button id="btn4"> &lt; </button>
+    </div>
+    <select id="tar-city" name="tar-city" multiple></select>
+  </section>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+    $(function () {
+      $("#btn1").click(function () {
+        $("#src-city>option").appendTo("#tar-city");
+      });
+
+      $("#btn2").click(function () {
+        $("#src-city").append($("#tar-city>option"));
+      });
+
+      $("#btn3").click(function () {
+        $("#src-city>option:selected").appendTo("#tar-city");
+      });
+
+      $("#btn4").click(function () {
+        $("#src-city").append($("#tar-city>option:selected"));
+      });
+    });
+
+  </script>
+</body>
+</html>
