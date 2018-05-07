@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导航demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav {
+      width: 900px;
+      height: 60px;
+      background-color: black;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+    .nav li {
+      width: 100px;
+      height: 60px;
+      /*border: 1px solid yellow;*/
+      float: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+      color: #ffff;
+      text-align: center;
+      line-height:60px;
+      text-decoration: none;
+      z-index: 2;
+    }
+    .nav span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: slategrey;
+      top: 60px;
+    }
+    .nav ul li:nth-of-type(1) span{
+      border-radius: 10px 0 0 10px;
+    }
+    .nav ul li:nth-last-of-type(1) {
+      border-radius: 0 10px 10px 0;
+    }
+  </style>
+  <script src="../jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $(".nav li").mouseenter(function () {
+        $(this).children("span").stop().animate({top:0});
+        //得到 index
+        var idx = $(this).index();
+        //让对应的音乐播放, 音乐播放的方法时DOM对象。
+        $("audio").get(idx).load();
+        $("audio").get(idx).play();
+      }).mouseleave(function () {
+        $(this).children("span").stop().animate({top:60});
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="nav">
+  <ul>
+    <li><a href="javascript:void(0);">金融</a><span></span></li>
+    <li><a href="javascript:void(0);">商城</a><span></span></li>
+    <li><a href="javascript:void(0);">借贷</a><span></span></li>
+    <li><a href="javascript:void(0);">美食</a><span></span></li>
+    <li><a href="javascript:void(0);">旅游</a><span></span></li>
+    <li><a href="javascript:void(0);">打游戏</a><span></span></li>
+    <li><a href="javascript:void(0);">导游</a><span></span></li>
+    <li><a href="javascript:void(0);">钓鱼</a><span></span></li>
+    <li><a href="javascript:void(0);">摄影</a><span></span></li>
+  </ul>
+  <!--音频标签 自己添加音乐文件-->
+  <div>
+    <audio src="mp3/1.ogg"></audio>
+    <audio src="mp3/2.ogg"></audio>
+    <audio src="mp3/3.ogg"></audio>
+    <audio src="mp3/4.ogg"></audio>
+    <audio src="mp3/5.ogg"></audio>
+    <audio src="mp3/6.ogg"></audio>
+    <audio src="mp3/7.ogg"></audio>
+    <audio src="mp3/8.ogg"></audio>
+    <audio src="mp3/9.ogg"></audio>
+  </div>
+</div>
+</body>
+</html>
