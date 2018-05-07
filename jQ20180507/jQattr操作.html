@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQattr操作</title>
+</head>
+<body>
+<!--样式：在style里面写的，用css来操作。-->
+<!--属性：在里面里面写的，用attr方法操作。-->
+<img src="1383385438.gif" alt="= =" title="= =!">
+<script src="jquery-1.12.4.js"></script>
+<script>
+  $(function () {
+    //用法和css一样 读写合一
+    //设置单个属性
+    //attr(name, value)
+    //$("img").attr("alt", "图破了");
+    //$("img").attr("title", "错错错错");
+    
+    //设置多个属性 配置对象
+    /*$("img").attr({
+      alt:"图破了",
+      title:"错错错",
+      aa:"bb"
+    })*/
+    console.log($("img").attr("alt"));
+  });
+</script>
+</body>
+</html>
