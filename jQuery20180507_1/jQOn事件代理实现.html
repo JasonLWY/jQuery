@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>on事件和事件代理实现</title>
+</head>
+<body>
+<input type="button" value="增加" id="btn">
+<div>
+  <p>发财</p>
+  <p>白板</p>
+  <p>红中</p>
+  <p>一索</p>
+</div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+  $(function () {
+    // 这个是p自己注册的事件（简单事件）
+    /*$("p").on("click", function () {
+      alert("呵呵");
+    });*/
+    $("div").on("click", "p", function () {
+      alert("自摸")
+    });
+    $("#btn").on("click", function () {
+      $("<p>花</p>").appendTo("div");
+    });
+  });
+</script>
+</body>
+</html>
