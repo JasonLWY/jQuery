@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+    li {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background: forestgreen;
+      text-align: center;
+      line-height: 200px;
+      margin: 0 20px 20px 0;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+//      for(var i = 0; i < $("li").length; i++) {
+//        $("li").eq(i).css("opacity", (i+1)/10);
+//      }
+      //each方法
+      $("li").each(function (index, element) {
+        $(element).css("opacity", (index+1)/10);
+      })
+    });
+  </script>
+</head>
+<body>
+<ul id="ulList">
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+  <li>绿色代表健康</li>
+</ul>
+</body>
+</html>
